@@ -18,6 +18,12 @@
   "devDependencies": {
     "@aws-amplify/backend": "^1.0.0",
     "@aws-amplify/backend-cli": "^1.0.1",
+    "@aws-sdk/client-bedrock": "^3.556.0",
+    "@aws-sdk/client-bedrock-agent": "^3.513.0",
+    "@aws-sdk/client-bedrock-agent-runtime": "^3.513.0",
+    "@aws-sdk/client-bedrock-runtime": "^3.556.0",
+    "@aws-sdk/credential-provider-node": "^3.509.0",
+    "@aws-sdk/types": "^3.502.0",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
