@@ -4,11 +4,30 @@ import { generateClient } from "aws-amplify/api";
 import { Schema } from "../amplify/data/resource";
 
 import { Amplify } from "aws-amplify";
+import { PubSub } from '@aws-amplify/pubsub';
 import outputs from "../amplify_outputs.json";
 
 Amplify.configure(outputs);
 
 const client = generateClient<Schema>();
+
+const pubsub = new PubSub({
+  region: 'us-east-1',
+  endpoint:
+    'wss://a3tw82l7ucghei-ats.iot.us-east-1.amazonaws.com/mqtt'
+});
+
+pubsub.subscribe('my-channel').subscribe({
+  next: (data) => {
+    console.log('Received message:', data.value);
+  },
+  error: (error) => {
+    console.error('Error receiving message:', error);
+  },
+  complete: () => {
+    console.log('Subscription complete');
+  },
+});
 
 export default function App() {
   const [prompt, setPrompt] = useState<string>("");
