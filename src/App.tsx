@@ -17,7 +17,7 @@ const pubsub = new PubSub({
     'wss://a3tw82l7ucghei-ats.iot.us-east-1.amazonaws.com/mqtt'
 });
 
-pubsub.subscribe('my-channel').subscribe({
+pubsub.subscribe({topics:'my-channel'}).subscribe({
   next: (data) => {
     console.log('Received message:', data.value);
   },
